@@ -1,6 +1,8 @@
 # Outbound Notifications with SIP Media Application
 
 This demo will build and configure several services within AWS so that you can send a meeting reminder with confirmation to a PSTN phone.
+
+> **_NOTE_** Your use of the Amazon Chime SDK for automated calling is subject to the AWS Customer agreement (including the AWS Acceptable Use Policy) and any other agreement with AWS governing your use of AWS services. It is your responsibility to comply with all applicable laws and regulations regarding the use of automated calling, including any requirements to obtain the consent of called parties.
 ## Overview
 
 #### To PSTN

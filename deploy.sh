@@ -81,12 +81,10 @@ if [ "$options" = "withAsterisk" ]; then
     printf "Deploying Asterisk\n"
     cdk deploy AsteriskEndpoint -O client-app/src/asterisk-outputs.json
     pushd utils
-    if [ ! -f "yarn.lock" ]; then
-        echo ""
-        echo "Installing Packages"
-        echo ""
-        yarn
-    fi
+    echo ""
+    echo "Installing Packages"
+    echo ""
+    yarn
     node createCsv.js
     popd
 fi

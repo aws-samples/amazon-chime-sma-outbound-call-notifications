@@ -98,6 +98,7 @@ include => phones
 
 [phones]
 exten => $PhoneNumber, 1,NoOp(Inbound Call)
+same  => n, Ringing()
 same  => n, Set(reject=\${RAND(1,10)})
 same  => n, GoToIf(\$[\${reject} > 8]?reject:answer)
 same  => n(reject), NoOp(Reject Call)

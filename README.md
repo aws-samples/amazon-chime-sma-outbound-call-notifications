@@ -27,9 +27,8 @@ This demo will build and configure several services within AWS so that you can s
 
 ### Back-end Resources
 
-- Clone this repo: `git clone ENTER_REPO_NAME`
-- `cd REPO_NAME`
-- `chmod +x deploy.sh`
+- Clone this repo: `git clone https://github.com/aws-samples/amazon-chime-sma-outbound-call-notifications`
+- `cd amazon-chime-sma-outbound-call-notifications`
 - `./deploy.sh`
 - Accept prompts for CDK deployment
 - To deploy with an Asterisk endpoint for automatic call answering `./deploy.sh -o withAsterisk`
@@ -53,7 +52,7 @@ This deployment will build everything required to see Amazon Chime SIP media app
 - requesterInfo DynamoDB - Table used to store numbers to call and status of those calls
 - AppSync API - Used to process DynamoDB Table and handle queries and mutations from Lambdas
 - SIP media application - Chime SMA used to make outbound calls. Associated with smaOutbound Lambda
-- (Optional) Asterisk Server on Public VPC. Used to answer calls and reply with DTMF. Please note - Asterisk can take ~5 minutes to create and configure during CDK deployment.
+- (Optional) Asterisk Server on Public VPC. Used to answer calls and reply with DTMF. Please note - Asterisk can take ~5 minutes to create and configure during CDK deployment. To access Asterisk, please use Session Manager within EC2.
 - (Optional) Chime Voice Connector with Phone Number associated with Asterisk server.
 
 ## Additional Resources
@@ -78,4 +77,4 @@ This will also upload the fields to a DynamoDB using GraphQL for later processin
 
 ## Cleanup
 
-To clean up this demo: `cdk destroy --all`. Additionally, Chime SIP media applications, rules, voice connectors, and phone numbers should be manually removed in the Chime Console.
+To clean up this demo: `yarn cdk destroy --all`. Additionally, Chime SIP media applications, rules, voice connectors, and phone numbers should be manually removed in the Chime Console.

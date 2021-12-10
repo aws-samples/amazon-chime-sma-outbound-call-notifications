@@ -41,12 +41,7 @@ else
     echo ""
     echo "INFO: cdk.context.json not present, nothing to remove"
 fi
-if [ ! -f "yarn.lock" ]; then
-    echo ""
-    echo "Installing Packages"
-    echo ""
-    yarn
-fi
+yarn
 echo ""
 echo "Building CDK"
 echo ""

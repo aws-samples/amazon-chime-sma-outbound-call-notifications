@@ -25,10 +25,6 @@ if ! [ -x "$(command -v aws)" ]; then
   echo 'Error: aws is not installed.' >&2
   exit 1
 fi
-if ! [ -x "$(command -v cdk)" ]; then
-  echo 'Error: cdk is not installed.' >&2
-  exit 1
-fi
 if ! [ -x "$(command -v python3)" ]; then
   echo 'Error: python3 is not installed.' >&2
   exit 1
@@ -56,6 +52,10 @@ echo "Building CDK"
 echo ""
 yarn run build
 echo ""
+echo "Bootstrapping CDK"
+echo ""
+yarn cdk bootstrap
+echo ""
 echo "Building Packages"
 echo ""
 INSTALLED=false
@@ -76,10 +76,10 @@ popd
 echo ""
 echo "Deploying CDK"
 echo ""
-cdk deploy SMANotification -O client-app/src/cdk-outputs.json
+yarn cdk deploy SMANotification -O client-app/src/cdk-outputs.json
 if [ "$options" = "withAsterisk" ]; then
     printf "Deploying Asterisk\n"
-    cdk deploy AsteriskEndpoint -O client-app/src/asterisk-outputs.json
+    yarn cdk deploy AsteriskEndpoint -O client-app/src/asterisk-outputs.json
     pushd utils
     echo ""
     echo "Installing Packages"
